@@ -1,7 +1,0 @@
-package com.logan.lab02;
-
-public interface Service {
-	
-	String getMessage();
-
-}

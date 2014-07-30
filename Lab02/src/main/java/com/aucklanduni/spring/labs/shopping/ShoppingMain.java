@@ -1,10 +1,14 @@
 package com.aucklanduni.spring.labs.shopping;
 
+import org.apache.log4j.BasicConfigurator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ShoppingMain {
 	public static void main(String[] args) {
+		
+		BasicConfigurator.configure();
+		
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:shopping.xml");
 		
 		Store store = (Store)context.getBean("store");

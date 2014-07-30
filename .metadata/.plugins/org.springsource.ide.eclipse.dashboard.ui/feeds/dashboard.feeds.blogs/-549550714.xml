@@ -78,9 +78,9 @@
 &lt;li&gt;&lt;a href="https://github.com/spring-projects/spring-xd-samples/tree/master/analytics-dashboard"&gt;Twitter Streaming Dashboard&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/spring-projects/spring-xd-samples/tree/master/batch-hashtag-count"&gt;Batch Analysis of Tweet hashtags&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/spring-projects/spring-xd-samples/tree/master/analytics-pmml"&gt;Scoring in real-time with JPMML&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;p&gt;This was a great team effort, with over a dozen active contributors spread around the world working for 68 weeks, divided into 32 sprints, resolving 1,650 issues in 2000 commits and 273 pages of documentation.  The 51,000 HipChat messages helped keep the team in constant contact and searching for &lt;a href="http://hipchat-emoticons.nyh.name/"&gt;new emoticons&lt;/a&gt; and &lt;a href="http://bit.ly/engineer-dance"&gt;fun images&lt;/a&gt;&lt;/p&gt;
+&lt;/ul&gt;&lt;p&gt;This was a great team effort, with over a dozen active contributors spread around the world working for 68 weeks, divided into 32 sprints, resolving 1,650 issues in 2000 commits, 1,000 tests, and 270 pages of documentation.  The 51,000 HipChat messages helped keep the team in constant contact and searching for &lt;a href="http://hipchat-emoticons.nyh.name/"&gt;new emoticons&lt;/a&gt; and &lt;a href="http://bit.ly/engineer-dance"&gt;fun images&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Thanks for all the feedback from early adopters.  Feedback is very important, so please get in touch with questions and comments vai&lt;/p&gt;
+&lt;p&gt;Thanks for all the feedback from early adopters.  Feedback is very important, so please get in touch with questions and comments via&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;
@@ -91,6 +91,42 @@
 &lt;/ul&gt;&lt;p&gt;&lt;strong&gt;SpringOne 2GX 2014 is around the corner&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com/"&gt;SpringOne in Dallas, TX&lt;/a&gt; for Sept 8-11 soon. It's simply the best opportunity to find out first hand all that's going on and to provide direct feedback.   There will be deep dive sessions on Spring XD along with general Big Data talks to provide an introduction to the landscape and challenges in developing Big Data applications.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring  (Spring XD Edition) - July 29th, 2014</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/29/this-week-in-spring-spring-xd-edition-july-29th-2014" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2014-07-30:1718</id>
+    <updated>2014-07-29T22:11:00Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;!  This week saw the release of the amazing &lt;a href="http://spring.io/projects/spring-xd"&gt;Spring XD 1.0.0.RELEASE&lt;/a&gt;. The release announcement is &lt;a href="http://spring.io/blog/2014/07/30/spring-xd-1-0-ga-released"&gt;a good place to start your big-data journey&lt;/a&gt;. There, you'll find links to other great posts, learning content, etc. This is a &lt;em&gt;great&lt;/em&gt; opportunity to evaluate what you hope to get out of your data, and whether you're getting it. Spring XD is your big-data Swiss-army knife: it can support live, streaming workloads; batch-centric offline workloads; and general data integration solutions. If you digest but one post from this week's roundup, let it be &lt;a href="http://spring.io/blog/2014/07/30/spring-xd-1-0-ga-released"&gt;the Spring XD release&lt;/a&gt;! (Then, write the data-integration solution to read and organize the rest of them using Spring XD!)&lt;/p&gt;
+
+&lt;p&gt;Of course, there's a &lt;em&gt;lot&lt;/em&gt; more to say on the matter, and on all matters Spring and things, so be sure to book  your &lt;a href="http://www.springone2gx.com/"&gt;place at &lt;strong&gt;SpringOne2GX 2014&lt;/strong&gt; in Dallas, TX for Sept 8-11 soon&lt;/a&gt;. It's simply the best opportunity to find out first hand all that's going on and to provide direct feedback. There will be deep dive sessions on Spring XD along with general Big Data talks to provide an introduction to the landscape and challenges in developing Big Data applications.&lt;/p&gt;
+
+&lt;p&gt;With that out of the way, let's get on to this week's roundup...&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;starting with... &lt;strong&gt;Spring XD 1.0.GA&lt;/strong&gt;! I know, I know. We just did this. But, there are some great posts about Spring XD that you might take a moment to read, starting with this &lt;a href="http://www.infoq.com/articles/introducing-spring-xd"&gt;great introduction to Spring XD on InfoQ&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Spring framework 4.1 RC1 dropped last week and this week we have some nice posts on Spring 4.1 features,  &lt;a href="http://spring.io/blog/2014/07/28/spring-framework-4-1-spring-mvc-improvements"&gt;including MVC improvements&lt;/a&gt; like JSONP, Google Protocol Buffers support, and Java 8 &lt;code&gt;java.util.Optional&lt;/code&gt; support where appropriate...&lt;/li&gt;
+&lt;li&gt;... and a post on   &lt;a href="http://spring.io/blog/2014/07/24/spring-framework-4-1-handling-static-web-resources"&gt;Spring MVC 4.1's very sensible approach to static  web resource handling&lt;/a&gt;. Read the comments, too! There's some great feedback there, too.&lt;/li&gt;
+&lt;li&gt;I'll be giving a webinar that &lt;a href="https://spring.io/blog/2014/07/29/webinar-microservices-with-spring-boot-sept-16th"&gt;looks at microservices with Spring Boot on September 16th&lt;/a&gt; and I hope you'll join me with questions, comments and more.&lt;/li&gt;
+&lt;li&gt;Activiti project member Joram Barrez and I will be giving  a webinar introducing &lt;a href="https://spring.io/blog/2014/07/29/webinar-process-driven-spring-applications-with-activiti-sept-23rd"&gt;how to use Spring and Activiti to deliver a one-two punch for process-centric applications&lt;/a&gt; - join us! &lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://spring.io/blog/2014/07/28/spring-data-dijkstra-sr2-released"&gt;Spring Data SR2 has just been released&lt;/a&gt;.  This ia service release, and users are encouraged to upgrade at their earliest convenience. &lt;/li&gt;
+&lt;li&gt;I was lucky enough to present &lt;a href="http://spring.io/blog/2014/07/25/pivotal-toronto-meetup-production-grade-applications-with-spring-boot"&gt;at the Toronto Pivotal Open Source Hub meetup on Spring Boot. The recording's now available online&lt;/a&gt;, though I caution you the audio can be a bit choppy at times.&lt;/li&gt;
+&lt;li&gt;Spring Cloud lead Ramnivas Laddad put up a &lt;a href="https://spring.io/blog/2014/07/29/using-spring-cloud-programmatically"&gt;nice post on how to use Spring Cloud programatically&lt;/a&gt; (as opposed to via XML, or even Spring's Java configuration). Spring Cloud is a client for PaaS-bound services like your databases, message brokers, caches, etc. It works on Heroku and Cloud Foundry. Besides working on Spring Cloud, Ramnivas is one of the original contributors to AspectJ and Spring's AOP support, and one of the early, lead architects behind  Cloud Foundry. Ramnivas lives at the intersection between Spring and the cloud, and Spring Cloud is &lt;em&gt;exactly&lt;/em&gt; what the doctor ordered!&lt;/li&gt;
+&lt;li&gt;Spring Batch lead Michael Minella just announced that &lt;a href="http://spring.io/blog/2014/07/28/spring-batch-admin-1-3-0-release-is-available"&gt;Spring Batch Admin 1.3.0&lt;/a&gt; is now available. The latest release raises compatibility to the latest-and-greatest third party libraries and also represents the last cut to include the Spring Batch Integration module that now ships as part of Spring Batch 3.0. &lt;/li&gt;
+&lt;li&gt;Did you see  Michael Pl?d's webinar on why he recommends Spring framework to his customers? The slidedeck's online and, I think, offers a suitably pragmatic look at the reasons  for (and sometimes against) &lt;a href="http://speakerdeck.com/mploed/pivotal-webinar-why-do-i-recommend-spring"&gt;using Spring in your next project&lt;/a&gt;.&lt;br&gt;
+&lt;/li&gt;
+&lt;li&gt;The ZeroTurnaround team has put together a nice look at XRebel, an interactive profile designed to shine a light on performance issues in a running application. They disect the classic &lt;a href="http://zeroturnaround.com/blog/spring-mvc-and-xrebel-uncovering-httpession-issues-with-an-interactive-profiler/"&gt;Petclinic sample application's use of sessions and see how they can optimize it&lt;/a&gt;. Interesting read!&lt;br&gt;
+&lt;/li&gt;
+&lt;li&gt; Idriss Mrabti has put together a nice post explaining how to &lt;a href="http://www.javacodegeeks.com/2014/07/jsr-303-loading-messages-from-an-i18n-property-file.html"&gt;load JSR 303 validation messages from internationalized ("i18n") &lt;code&gt;MessageSource&lt;/code&gt;s managed by Spring&lt;/a&gt; - handy! &lt;/li&gt;
+&lt;li&gt; Shazin Sadakath has revisited one of his previous posts introductions &lt;a href="http://shazsterblog.blogspot.com/2014/07/spring-security-custom-filterchainproxy.html"&gt;to registering and using Spring-managed &lt;code&gt;Filter&lt;/code&gt;s with Spring MVC, this time doing so in Java configuration&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;James Watters, director of product on the Cloud Foundry team, has put together an &lt;em&gt;almost&lt;/em&gt;-too-abbreviated  &lt;a href="http://www.slideshare.net/wattersjames/pivotal-cf-in-2-slides"&gt;look at   Cloud Foundry's features in 2 slides&lt;/a&gt;. I.. tried... but couldn't find anything wrong with this. If you understand those two slides, then you have enough to make the case for Cloud Foundry. Obviously, these aren't implementation instructions so much as  a  darned good first step at making the business case. Why Cloud Foundry for you and me? Because it's a perfect platform to run Spring-based workloads. There. That probably wouldn't even have needed a whole slide. :)&lt;/li&gt;
+&lt;/ol&gt;</content>
   </entry>
   <entry>
     <title>Webinar: Process Driven Spring Applications with Activiti - Sept 23rd</title>
@@ -1232,53 +1268,6 @@ Therefore 3.6.1 is scheduled to ship on time for SpringOne2GX 2014 in early Sept
 &lt;hr&gt;&lt;p&gt;SpringOne 2GX 2014 is getting close.&lt;/p&gt;
 
 &lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com"&gt;SpringOne in Dallas, TX&lt;/a&gt; for Sept 8-11. It's simply the best opportunity to find out first hand what's hot in Spring Data and have a chat with the people involved.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Batch Releases And A New Repository</title>
-    <link rel="alternate" href="https://spring.io/blog/2014/07/10/spring-batch-releases-and-a-new-repository" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Michael Minella</name>
-    </author>
-    <id>tag:spring.io,2014-07-10:1678</id>
-    <updated>2014-07-10T14:05:00Z</updated>
-    <content type="html">&lt;p&gt;Today we are pleased to announce the release of Spring Batch 3.0.1, Spring Batch Admin 1.3.0.RC1, and introduce the
-    Spring Batch Extensions project.  These releases in addition to the Spring Batch Extensions project address a number
-    of improvements and issues.&lt;/p&gt;
-
-&lt;h2&gt;
-&lt;a name="user-content-spring-batch-301" class="anchor" href="#spring-batch-301" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Spring Batch 3.0.1&lt;/h2&gt;
-
-&lt;p&gt;This release of Spring Batch consists mainly of bug fixes, however, one new feature was added: &lt;code&gt;ScriptItemProcessor&lt;/code&gt;.
-   This &lt;code&gt;ItemProcessor&lt;/code&gt; implementation provides the ability to use an external or inline script to provide
-   the logic of your processor.  An example of using Groovy inline would look something like this:&lt;/p&gt;
-
-&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@Bean&lt;/span&gt;
-&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;ScriptItemProcessor&lt;/span&gt; &lt;span class="nf"&gt;processor&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;ScriptItemProcessor&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;scriptItemProcessor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ScriptItemProcessor&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;();&lt;/span&gt;
-
-    &lt;span class="n"&gt;scriptItemProcessor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setScriptSource&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"item.toUpperCase();"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"groovy"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-    &lt;span class="n"&gt;scriptItemProcessor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;afterPropertiesSet&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;scriptItemProcessor&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-&lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;This &lt;code&gt;ItemProcessor&lt;/code&gt; allows full support of all JSR-223 scripting options.&lt;/p&gt;
-
-&lt;h2&gt;
-&lt;a name="user-content-spring-batch-admin-130rc1" class="anchor" href="#spring-batch-admin-130rc1" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Spring Batch Admin 1.3.0.RC1&lt;/h2&gt;
-
-&lt;p&gt;Spring Batch Admin 1.3.0.RC1 addresses &lt;a href="https://jira.spring.io/browse/BATCHADM-188?jql=fixVersion%20%3D%201.3.0%20AND%20project%20%3D%20BATCHADM"&gt;a number of issues&lt;/a&gt; as well as updated it to be used with the Spring Batch 2.2.x version of the job repository and beyond.  In addition to the issues addressed, we also completed a number of dependency updates to bring the project up to date from that perspective.&lt;/p&gt;
-
-&lt;p&gt;To support the users of Spring Batch 2.2.x, this release contains the Spring Batch Integration module and still uses Spring Integration 3.  However, Spring Batch 3.0 saw us move this module to Spring Batch and so this will be the last release of Spring Batch Admin that contains this module.  Going forward, users will be expected to use the version included within Spring Batch.&lt;/p&gt;
-
-&lt;h2&gt;
-&lt;a name="user-content-spring-batch-extensions" class="anchor" href="#spring-batch-extensions" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Spring Batch Extensions&lt;/h2&gt;
-
-&lt;p&gt;Finally, we are happy to announce a new repository for Spring Batch, Spring Batch Extensions.  This project provides a home for community contributed modules akin to Spring Integration Extensions.  With this announcement, we have our first contribution, the spring-batch-elasticsearch module.  This module provides an &lt;code&gt;ItemReader&lt;/code&gt; and an &lt;code&gt;ItemWriter&lt;/code&gt; for interacting with Elasticsearch.  You can find information about this module and other contributions on &lt;a href="https://github.com/spring-projects/spring-batch-extensions"&gt;Github&lt;/a&gt;.  We look forward to future contributions from the community to help expand the available use cases for Spring Batch.&lt;/p&gt;
-
-&lt;p&gt;Please share your feedback on Stack Overflow, social media, and in person at &lt;a href="http://springone2gx.com/register"&gt;SpringOne2GX&lt;/a&gt;!&lt;/p&gt;</content>
   </entry>
 </feed>
 

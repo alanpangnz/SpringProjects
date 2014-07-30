@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+/Users/l93burgess/Desktop/github/SpringProjects/.metadata/.plugins/org.eclipse.jdt.core
+2810867921.index

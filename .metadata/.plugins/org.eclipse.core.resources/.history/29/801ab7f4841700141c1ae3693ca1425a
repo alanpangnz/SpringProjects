@@ -1,0 +1,10 @@
+package com.aucklanduni.spring.labs.basicauthenticator;
+
+public class AccessManager {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

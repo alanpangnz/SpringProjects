@@ -7,12 +7,19 @@
 
 	<bean id="counter" class="com.aucklanduni.spring.labs.simplelock.DefaultCounter"/>
 	<bean id="mainer" class="com.aucklanduni.spring.labs.simplelock.SimpleLockMainWithProxyFactory"/>
+	
+<!-- 	advice around the testcounter method in simplemain -->
 
+	
 	<aop:config>
 		<aop:pointcut id="counter" expression="execution(* *.DefaultCounter)" />
 		<aop:aspect ref="mainer">
-			<aop:around pointcut-ref="counter" method="increment" />
-			<aop:around pointcut-ref="counter" method="value" />
+			<aop:around pointcut-ref="counter" method="increment">
+				
+			</aop:around>
+			<aop:around pointcut-ref="counter" method="value">
+				
+			</aop:around>
 		</aop:aspect>
 	</aop:config>
 

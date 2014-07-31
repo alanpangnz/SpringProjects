@@ -1,7 +1,9 @@
 package com.aucklanduni.spring.labs.simplelock;
 
 import org.aopalliance.aop.Advice;
+import org.apache.log4j.BasicConfigurator;
 import org.springframework.aop.framework.ProxyFactory;
+
 
 
 public class SimpleLockMainWithProxyFactory {
@@ -10,6 +12,10 @@ public class SimpleLockMainWithProxyFactory {
 	private static final int INVOCATIONS_PER_THREAD = 1000;
 	
 	  public static void main(String[] args) {
+		BasicConfigurator.configure();
+			
+		//ApplicationContext context = new ClassPathXmlApplicationContext("classpath:threadsafe.xml"); 	  
+		  
 		// Create the target object and the advice.
 	    Counter target = new DefaultCounter();
 	    

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:aop="http://www.springframework.org/schema/aop"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+  <bean id="target" class="com.aucklanduni.spring.aop.introduction.TargetBeanImpl">
+    <property name="name" value="Michael Caine" />       
+  </bean>
+  
+  <bean id="target2" class="com.aucklanduni.spring.aop.introduction.TargetBeanImpl">
+    <property name="name" value="Sean Connery" />       
+  </bean>
+        
+  <aop:config>
+    <aop:aspect>
+    	<aop:declare-parents types-matching="com.aucklanduni.spring.aop.introduction.TargetBean+" 
+    	                     implement-interface="com.aucklanduni.spring.aop.introduction.CoolFeature"
+    	                     default-impl="com.aucklanduni.spring.aop.introduction.CoolFeatureImpl" />
+    </aop:aspect>
+  </aop:config>  
+</beans>

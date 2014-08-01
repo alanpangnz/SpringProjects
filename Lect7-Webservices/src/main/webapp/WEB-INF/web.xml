@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/app/root-context.xml</param-value>
+	</context-param>
+	
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- Configure the Web container to use Spring's DispatcherServlet. DispatcherServlet will 
+	     forward incoming requests and direct them to application controllers. The Spring container 
+	     that is used by the The DisplatcherServlet is initialised by the XML file specified by
+	     the "contextConfiguration" initialisation parameter (i.e. "restful-context.xml"). -->
+	<servlet>
+		<servlet-name>contactsService</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/app/restful-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- Ensure that the servlet executes incoming requests that match the pattern "/*". This means
+	     that if the application is hosted within a Web container at path "Contact", and if the 
+	     Web container's domain name is "http://localhost:808", then the servlet will process any
+	     requests of the form: http://localhost:8080/Contact/, 
+	     e.g http://localhost:8080/Contact/contacts.   -->
+	<servlet-mapping>
+		<servlet-name>contactsService</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>

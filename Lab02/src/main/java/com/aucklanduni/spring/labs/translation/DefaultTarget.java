@@ -1,5 +1,7 @@
 package com.aucklanduni.spring.labs.translation;
 
+import java.lang.reflect.Method;
+
 public class DefaultTarget implements Target {
 
 	@Override
@@ -8,5 +10,6 @@ public class DefaultTarget implements Target {
 		Object object = null;
 		object.toString();
 	}
+	
 
 }

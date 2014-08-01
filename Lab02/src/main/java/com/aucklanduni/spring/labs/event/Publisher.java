@@ -1,5 +1,6 @@
 package com.aucklanduni.spring.labs.event;
 
+import org.apache.log4j.BasicConfigurator;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -10,6 +11,9 @@ public class Publisher implements ApplicationContextAware {
 	private ApplicationContext _context;
 	
 	public static void main(String[] args) {
+		
+		BasicConfigurator.configure();
+		
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:events.xml");
 		
 		Publisher publisher = (Publisher)context.getBean("publisher");
@@ -29,3 +33,6 @@ public class Publisher implements ApplicationContextAware {
 		
 	}
 }
+
+//Due to Beans in XML using IoC Container
+//also using equivalent to messaging which is a service provided by a container

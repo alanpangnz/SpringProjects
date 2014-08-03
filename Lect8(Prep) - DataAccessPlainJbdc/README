@@ -1,0 +1,11 @@
+Study the supplied source files for a simple Java JDBC (Java Database Connectivity) application.
+JDBC basically allows an application to work with a relational database. The supplied code is a
+simple and partial implementation of a database application that manages contact details.
+
+1. Each of the supplied classes and interface has a key responsibility. Suggest what it might be.
+
+2. Consider interface com.aucklanduni.jdbc.dao.ContactDao. DAO stands for Data Access Object. What do
+   you think might be the value of having this DAO interface? Other than the supplied implementation
+   (com.aucklanduni.jdbc.dao.PlainContactDao), what other implementations could there be?
+   
+3. Study class PlainContactDao. Make some observations based on its implementation. 

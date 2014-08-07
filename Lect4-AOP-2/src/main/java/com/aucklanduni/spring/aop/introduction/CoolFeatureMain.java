@@ -1,5 +1,6 @@
 package com.aucklanduni.spring.aop.introduction;
 
+import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -8,8 +9,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class CoolFeatureMain {
 	private static final Logger _logger = LoggerFactory.getLogger(CoolFeatureMain.class);
-	
+
 	public static void main(String[] args) {
+		BasicConfigurator.configure();
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"introduction.xml");
 

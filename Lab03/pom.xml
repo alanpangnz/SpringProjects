@@ -17,11 +17,33 @@
 	<properties>
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 		<spring.framework.version>3.2.9.RELEASE</spring.framework.version>
-	</properties>	
-	<dependencies>
+		<aspectj.version>1.6.11</aspectj.version>
+	</properties>	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<!--  Project-specific dependencies -->
+		<dependency> 
+  			<groupId>org.slf4j</groupId>
+  			<artifactId>slf4j-log4j12</artifactId>
+ 			 <version>1.7.7</version>
+		</dependency>
+		<!-- Additional dependencies for AOP -->
+		<dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>                
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>  
+        <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
 			<version>${spring.framework.version}</version>
 		</dependency>
 	</dependencies>

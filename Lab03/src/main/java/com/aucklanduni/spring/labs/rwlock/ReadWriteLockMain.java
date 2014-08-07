@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.log4j.BasicConfigurator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,9 +17,10 @@ public class ReadWriteLockMain {
 	private static final int NUMBER_OF_WRITER_THREADS = 10;
 	
 	public static void main(String[] args) {
+		BasicConfigurator.configure();
+		
 	    ApplicationContext context = 
 	        new ClassPathXmlApplicationContext("rw-lock.xml"); 
-	    
 	    // Retrieve ThreadMonitor beans.
 	    final ThreadMonitor monitor1 = context.getBean("monitor_1", ThreadMonitor.class);
 	    final ThreadMonitor monitor2 = context.getBean("monitor_2", ThreadMonitor.class);

@@ -19,8 +19,8 @@ public class ReadWriteLockMain {
 	public static void main(String[] args) {
 		BasicConfigurator.configure();
 		
-	    ApplicationContext context = 
-	        new ClassPathXmlApplicationContext("rw-lock.xml"); 
+		//ApplicationContext context = new ClassPathXmlApplicationContext("rw-lock.xml"); 
+	    ApplicationContext context = new ClassPathXmlApplicationContext("rw-lock-annotation.xml"); 
 	    // Retrieve ThreadMonitor beans.
 	    final ThreadMonitor monitor1 = context.getBean("monitor_1", ThreadMonitor.class);
 	    final ThreadMonitor monitor2 = context.getBean("monitor_2", ThreadMonitor.class);

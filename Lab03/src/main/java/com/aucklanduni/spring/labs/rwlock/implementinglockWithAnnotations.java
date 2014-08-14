@@ -1,4 +1,4 @@
-package com.aucklanduni.spring.labs.rwlock.protect; 
+package com.aucklanduni.spring.labs.rwlock; 
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class implementinglockWithAnnotations {
@@ -14,22 +15,26 @@ public class implementinglockWithAnnotations {
 	private final Lock r = rwl.readLock();
 	private final Lock w = rwl.writeLock();
 
-	@Before("execution(* *.get(..))")
+	@Pointcut("execution(* *.*(..)) && @annotations(com.aucklanduni.spring.labs.rwlock.protect.Reader)")
+	void read() {	
+	}
+	@Pointcut("execution(* *.*(..)) && @annotations(com.aucklanduni.spring.labs.rwlock.protect.Writer)")
+	void write() {	
+	}
+	
+	@Before("read()")
 	void readlock(){
 		r.lock();
 	}
-	
-	@After("execution(* *.get(..))")
+	@After("read()")
 	void readunlock(){
 		r.unlock();
 	}
-
-	@Before("execution(* *.set(..))")
+	@Before("write()")
 	void writelock(){
 		w.lock();
 	}
-	
-	@After("execution(* *.set(..))")
+	@After("write()")
 	void writeunlock(){
 		w.unlock();
 	}

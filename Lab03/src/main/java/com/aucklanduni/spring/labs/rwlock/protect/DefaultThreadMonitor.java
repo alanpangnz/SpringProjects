@@ -39,7 +39,7 @@ public class DefaultThreadMonitor implements ThreadMonitor {
 		_readerThreadCount = 0;
 	}
 	
-	@Override
+	@Writer
 	public void set() {
 		if((!_readerThreads.isEmpty()) || (_writerThread != null)) {
 			// Error detected - at least one reader thread or a writer thread is 
@@ -60,7 +60,7 @@ public class DefaultThreadMonitor implements ThreadMonitor {
 		_writerThread = null;
 	}
 
-	@Override
+	@Reader
 	public int get() {
 		// Record that a reader thread is now executing this method.
 		_readerThreads.add(Thread.currentThread());
@@ -79,7 +79,6 @@ public class DefaultThreadMonitor implements ThreadMonitor {
 				_readerThreadCount = numberOfReaderThreads;
 			}
 		}
-		
 		// Sleep for some randomly generated number of ms.
 		try {
 			Thread.sleep(getSleepTime());

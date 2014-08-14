@@ -43,6 +43,12 @@ public class Server {
 			
 			// Register BankAccounts with the lookup service.
 			// === YOUR CODE HERE ===
+			Naming.rebind("//" + registryHost + ":" + registryPort + "/" + 
+					"67832189", acc1);
+			Naming.rebind("//" + registryHost + ":" + registryPort + "/" + 
+					"69826344", acc2);
+			Naming.rebind("//" + registryHost + ":" + registryPort + "/" + 
+					"61198701", acc3);
 			
 			System.out.println("Bank account objects exported.");
 		} catch(RemoteException e) {

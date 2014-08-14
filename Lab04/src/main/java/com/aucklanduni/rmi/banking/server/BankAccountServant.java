@@ -1,6 +1,7 @@
 package com.aucklanduni.rmi.banking.server;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import com.aucklanduni.rmi.banking.common.BankAccount;
 import com.aucklanduni.rmi.banking.common.ExcessiveAmountException;
@@ -14,7 +15,7 @@ import com.aucklanduni.rmi.banking.common.NegativeAmountException;
  * amount that can be withdrawn in one transaction. A BankAccount's balance is
  * not constrained - it can be in credit or debit for an arbitrary amount.
  */
-public class BankAccountServant {
+public class BankAccountServant extends UnicastRemoteObject implements BankAccount {
 
 	private Money fBalance;
 
@@ -37,7 +38,7 @@ public class BankAccountServant {
 	 *            the maximum amount that can be withdrawn in one operation.
 	 */
 	public BankAccountServant(Money initialBalance, String name, String number,
-			Money maxWithdrawal) {
+			Money maxWithdrawal) throws RemoteException {
 		this.fBalance = new Money(initialBalance);
 		this.fName = name;
 		this.fNumber = number;

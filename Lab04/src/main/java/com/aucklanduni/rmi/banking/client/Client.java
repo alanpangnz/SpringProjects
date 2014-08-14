@@ -1,5 +1,8 @@
 package com.aucklanduni.rmi.banking.client;
 
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -9,6 +12,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Hashtable;
 
+import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +29,9 @@ public class Client {
 	private static final Logger _logger = LoggerFactory.getLogger(Client.class);
 
 	public static void main(String[] args) {
-
+		
+		BasicConfigurator.configure();
+		
 		final int THREAD_POOL_SIZE = 5;
 		final String DATA_FILE = "operations.dat";
 		final String REGISTRY_HOST = "127.0.0.1";
@@ -35,7 +41,7 @@ public class Client {
 			long start = System.currentTimeMillis();
 
 			/* Lookup remote BankAccount objects. */
-			Hashtable<String, BankAccount> accounts = lookupRemoteAccounts(args[1], args[2]);
+			Hashtable<String, BankAccount> accounts = lookupRemoteAccounts(REGISTRY_HOST, "1099");
 			if (accounts.isEmpty()) {
 				_logger.error("Unable to acquire proxy objects, program terminating.");
 				System.exit(1);
@@ -62,7 +68,7 @@ public class Client {
 			}
 
 			/* Start a producer thread that deposits commands into the queue. */
-			Thread producerThread = new Thread(new Producer(args[0], parser,
+			Thread producerThread = new Thread(new Producer(DATA_FILE, parser,
 					queue));
 			producerThread.start();
 
@@ -127,6 +133,30 @@ public class Client {
 		Hashtable<String, BankAccount> accounts = new Hashtable<String, BankAccount>();
 
 		// === YOUR CODE HERE ===
+		try {
+			BankAccount factory1 = (BankAccount)Naming.lookup(
+				"//" + registryHost + ":" + registryPort + "/" + "67832189");
+			BankAccount factory2 = (BankAccount)Naming.lookup(
+				"//" + registryHost + ":" + registryPort + "/" + "69826344");
+			BankAccount factory3 = (BankAccount)Naming.lookup(
+				"//" + registryHost + ":" + registryPort + "/" + "61198701");
+			
+			accounts.put( factory1.getName(), factory1);
+			accounts.put( factory2.getName(), factory2);
+			accounts.put( factory3.getName(), factory3);
+			
+			return accounts;
+		
+		} catch (RemoteException e) {
+			return null;
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
+
 	}
 }

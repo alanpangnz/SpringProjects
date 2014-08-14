@@ -61,5 +61,25 @@ public class Worker implements Runnable {
 	 */
 	private void processCommand(String[] commandTokens) {
 		// === YOUR CODE HERE ===
+		
+			//how to get the proxyobject
+			try {
+				if (commandTokens[0].equals("balance")) {
+					fAccounts.get(commandTokens[1]).getBalance();
+				} else if (commandTokens[0].equals("name")) {
+					fAccounts.get(commandTokens[1]).getName();
+				} else if (commandTokens[0].equals("deposit")) {
+					fAccounts.get(commandTokens[1]).deposit(new Money(commandTokens[2], commandTokens[3]));
+				} else { //withdraw
+					fAccounts.get(commandTokens[1]).withdraw(new Money(commandTokens[2], commandTokens[3]));
+				}
+			} catch (RemoteException | NumberFormatException| NegativeAmountException | IllegalMoneyException | ExcessiveAmountException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		
+		
+		
 	}
 }

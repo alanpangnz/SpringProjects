@@ -15,10 +15,10 @@ public class implementinglockWithAnnotations {
 	private final Lock r = rwl.readLock();
 	private final Lock w = rwl.writeLock();
 
-	@Pointcut("execution(* *.*(..)) && @annotations(com.aucklanduni.spring.labs.rwlock.protect.Reader)")
+	@Pointcut("execution(* *.*(..)) && @annotation(com.aucklanduni.spring.labs.rwlock.protect.Reader)")
 	void read() {	
 	}
-	@Pointcut("execution(* *.*(..)) && @annotations(com.aucklanduni.spring.labs.rwlock.protect.Writer)")
+	@Pointcut("execution(* *.*(..)) && @annotation(com.aucklanduni.spring.labs.rwlock.protect.Writer)")
 	void write() {	
 	}
 	

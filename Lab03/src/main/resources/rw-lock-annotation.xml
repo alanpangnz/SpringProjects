@@ -10,7 +10,7 @@
   	<bean id="monitor_1" class="com.aucklanduni.spring.labs.rwlock.protect.DefaultThreadMonitor" />
   	<bean id="monitor_2" class="com.aucklanduni.spring.labs.rwlock.protect.DefaultThreadMonitor" />
 	
-	<!-- <bean id="rwl" class="com.aucklanduni.spring.labs.rwlock.implementinglockWithAnnotations"/>  -->
+	<bean id="rwl" class="com.aucklanduni.spring.labs.rwlock.implementinglockWithAnnotations"/>
 	
   	<aop:aspectj-autoproxy/>
   	

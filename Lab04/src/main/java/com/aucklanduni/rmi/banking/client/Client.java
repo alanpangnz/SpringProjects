@@ -33,7 +33,7 @@ public class Client {
 		BasicConfigurator.configure();
 		
 		final int THREAD_POOL_SIZE = 5;
-		final String DATA_FILE = "operations.dat";
+		final String DATA_FILE = "/Users/l93burgess/Desktop/github/SpringProjects/Lab04 - Retry/src/main/resources/operations.dat";
 		final String REGISTRY_HOST = "127.0.0.1";
 		final int REGISTRY_PORT = 1099;
 
@@ -141,9 +141,11 @@ public class Client {
 			BankAccount factory3 = (BankAccount)Naming.lookup(
 				"//" + registryHost + ":" + registryPort + "/" + "61198701");
 			
-			accounts.put( factory1.getName(), factory1);
-			accounts.put( factory2.getName(), factory2);
-			accounts.put( factory3.getName(), factory3);
+			//System.out.println("Acc name: "+ factory1.getNumber());
+			
+			accounts.put( factory1.getNumber(), factory1);
+			accounts.put( factory2.getNumber(), factory2);
+			accounts.put( factory3.getNumber(), factory3);
 			
 			return accounts;
 		

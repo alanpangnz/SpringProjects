@@ -75,7 +75,7 @@ public class Worker implements Runnable {
 				}
 			} catch (RemoteException | NumberFormatException| NegativeAmountException | IllegalMoneyException | ExcessiveAmountException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		
 		

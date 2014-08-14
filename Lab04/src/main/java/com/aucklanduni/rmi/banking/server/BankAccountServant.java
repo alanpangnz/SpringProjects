@@ -78,7 +78,7 @@ public class BankAccountServant extends UnicastRemoteObject implements BankAccou
 	 *             if the value of the amount argument is negative. The state of
 	 *             the BankAccount object is unchanged.
 	 */
-	public void deposit(Money amount) throws NegativeAmountException {
+	public synchronized void deposit(Money amount) throws NegativeAmountException {
 		/* Check that the amount to deposit is non-negative. */
 		if (amount.isNegative()) {
 			throw new NegativeAmountException();
@@ -99,7 +99,7 @@ public class BankAccountServant extends UnicastRemoteObject implements BankAccou
 	 *             limit. In this case, the BankAccount object's state is
 	 *             unchanged.
 	 */
-	public void withdraw(Money amount) throws 
+	public synchronized void withdraw(Money amount) throws 
 	NegativeAmountException, ExcessiveAmountException {
 		/* Check that the amount to withdraw is non-negative. */
 		if (amount.isNegative()) {

@@ -1,0 +1,301 @@
+Lecture 1:
+Using java spring, build distributed applications - interact with XML
+Use .net for DBase interaction
+Security is real concern - firewalls, confidential, authentication(ACL), 
+Preformance via clusters, load balancing, redundancy/ fault tolerance, scalability
+
+Web services - communication method for web connected systems
+Project may mandate particular technology
+1 tier sys - mainframe and dumb terminals (difficult to maintain)
+2 tier sys - desktop pcs present UI, processing done on servers (led to RPC, invo ked from clients, thin client vs fat client)
+3 tier - today
+
+Tiers influence of scalable, uptime, Preformance 
+Horizontal scaling - more resources/processing on same tier, secondary function in fault tolerance
+Vertical scaling - add CPU and ram to same machine
+Middleware, scalable pre built frameworks that's reusable 
+Java rmi reusable communication package - interact via method rather than TCP itself)
+Communicate with other machines for language barriers (web services make hetrogeneous)
+Containers(subset middleware) free you from interaction with low level physical and link layer, manages/hosts components (severlets) application independent.
+Declarative configuration - say what want not how to do it, just specify type of method (read/write), 
+Enterprise java beans - widely used container specification
+Container manages life cycle- 
+EJB have to implement components - entity and session beans
+Spring comprimises of application framework and IOC container uses POJO to be minimally invasive and lightweight
+
+
+Lecture 2:
+Container handles component process and initiation
+Interface to separate message generator(can hardcore or parametrise) and a message renderer(one fore stdout, stderr, etc), can implement with any that implements that interface
+Constructor injection:The component declares its dependencies as constructor arguments. The IoC container passes the dependencies to the component when it instantiates it. 
+Setter injection: The component declares “setter” methods for dependencies. The IoC container injects dependencies via the setter methods. 
+(Widely used-defines default but can override-POJO)
+XML
+Namespace (beans) defined by schema
+Thus not responsible for creating the class
+Requires a getter and setter method of the same name to be tied together
+ANNOTATION
+@service - signifies components will try to initialise when spring starts
+@autowired - tries to inject valid properties into container
+May be a reason to make component container aware - side affect have to implement spring interface
+Can implement the container interface - force method creation
+Lazy initialisation doesn't initialise until called
+Init calls after initialisation to check valid
+If want to call method before shutdown need to register hook
+
+
+Lecture 3:
+Join point well defined point in running method
+Advice is code want to insert
+Target object is method want to advise
+Dynamic @ runtime less efficient due tooverhead
+
+Advice point: before, after, around, throws(best matching exec)
+Cross cutting ACLs important for beans, transactions for integrity
+
+
+Lecture 4:
+Declarative - what rather than how
+Pointcut - subset of methods meet criteria for join points rather than any/all methods
+Eg only those implement interface or class or variable matching x
+Point ut defined using execution(*.package.method(arg))
+Constrain via within to constrain to specific calling class
+Proxy initiates the advice or injection - if call a method then the advice or logging triggered if in proxy factory
+Want to let spring do the work for us
+Use around and timer bean to time from before and after
+Introductions - add new methods and functionality at run time, eg handling cross cutting concern, can stop a class cast exception at runtime
+Target matching - what want to match the class to
+Implement interface - interface that adding
+Default impl - 
+Dynamic Proxy implements both interfaces can use methods from both of them
+Parameters for load proxy - classhandler & invocationhandler
+Generates new class merged of passed in, initalised and we get access to it, forwards each call to invocation handler to distribute using reflection
+
+
+Lecture 5:
+Middleware building upon TCP basic network layer
+Aim : distribution transperency - Make it look like invoking local method - simplifies programmers job
+Can't gurantee successful return - but rmi abstracts away
+Proxy contains IP address, port no, identifed for remote process
+Implements same interface as remote object
+Proxy is representative 
+Marshalling is converting objects into bytes for transmission
+Serialisation automates the process
+
+Need way convert client mem address to byte representation
+Serialisation writes out all states of var's and everything that can be reached from that manager
+Seralizable is a marker interface (for semantics and doesn't implement any methods - just says gives permission to send)
+Remote interface - can be accessed remotely, throws exception if fails
+Uni cast remote object - class that's remotely accessible - good to sub cast it as allows multi classes to be remote port bound
+
+Servant class - remote accessible class
+Objects never leave process they were initalised in, return value is just a proxy to interact with the object
+
+
+Lecture 6:
+Using lect 5 slides
+
+Have to catch remote exception with remote objects
+Do both server and client need to catch?
+How to push ongoing client side interaction
+Returns ref to state refence variable
+Serializable data - serialises the graphic in server, sends obj to client, deserialisation in client
+Local var updates sever in remote variable(as done via proxy) but not for seralized objects (can't refer to object in sep addr space)
+Shapefactory represents the client, generic coll of servants, 
+Object on server never leave server only their proxies which saved in client addr space
+
+Lect 6 slides
+M2M interaction
+Http: stateless, open protocol, request-reply, negotiable context type, persistent connection with pipelining, simple access control
+
+Non-idempotent requests-change state every request
+idempotent- executes same return every time(no state change)
+
+Other functions such as scalability and reliability 
+Regularly use caching
+Able to select non cache subsection eg price element to excl
+Good static content not dynamic
+Overcome year old static with conditional get - cache and web server modification since last cached time
+
+Lecture 7:
+No notes.
+
+Lecture 8:
+Carry on from restful services yesterday
+Boilerplate code - necessary, repeatable, templatable (spring), 
+Get back the object linked to the objects your are requesting retrievable on
+Rest nothing is specified about structure response or methods that are defined, based on http conventions while SOAP is more defined for fluid use where things are dynamic
+
+This Lect
+Want to use data source pooling to minimise the traffic, if no return in pool then will call block until connection available, use pool to minimise load on servers
+Pool for each source
+Pool has finite number of connections
+Spring typically bean, defined in XML file
+Embedded DBase In same process in jvm as the requestor
+Spring provides template class for encapsulating boilerplate code for a particular persistence technology, transforms specific exceptions to persistence to standardised
+Explicitly stating object header is safer as ? Identifiers have to be in right order compared to the database to pull out correct information
+
+Lecture 9:
+At service layer rather than data access layer - mismatch, conversion between table and object, lot of work to continuously map the table back and forth
+Object relational mapper (hibernate) reduces this 
+ORM provides automation of SQL query, provide strategy for object selection, provide support got enforcing reference integrity, automate mapping objec rand table 
+lazy load and fetching - just get some transactions
+Eager fetching - get all in one go
+Can be embedded in same process as application
+Hibernate setup
+	1.	Data source
+	2.	Initalise app context with beans -- annotation session factory (responsible for scanning domain classes and how relate)
+	3.	Optional specify how it is configured
+	4.	Adds advice to object, if throws exception then dao translates to neutral exception
+Need to state which dialect to use in hibernate dialect XML 
+Join table to illiterate many to many relation
+Implement via sets to many side of relationship
+Map table to vars
+@entity
+@ table
+@column
+@id
+@version
+@ temporal - switch betten java and SQL date/time
+@generated value
+Orphan removal-removes transactions which point to dead links
+Cascade - updates interlinked transactions below in hierarchy
+@manyToMany
+
+Lecture 10:
+DAO - important sessionFactory - can interact with database
+need to define mapping between tables via queries
+Hibernate is own language, 
+lazy loading is on demand object retrieval
+better to use named query opposed to many to many as eager has to be used for all queries not selected
+
+Lecture 11:
+Inconsistency in the server, responsibility of middleware to recover from failed transactions
+Transaction motivation
+First motivation :- partial failure
+Second motivation :- concurrency control
+Third motivation :- distributed resources (want all or nothing behaviour)
+DBMS using transaction redundancy, if multiple SQL transactions need to be executed then set order
+Java rmi clients don't support atomic transactions but corba does
+ACID - atomic, consistantcy, isolation, durability
+Serial equivalence - ensuring the isolation property is to execute transactions serially (1 by 1), real world can't do strictly, serially equiv if same effect run concurrently as they do serially in same order at all objects both operations access them
+Conflict
+	1.	 read, write, 
+	2.	Write, read
+	3.	Write, write
+
+Lecture 12:
+Either committed or aborted(all effects reversed)
+Can abort by client or server
+Can timeout, or conflict between transactions
+Can cause problems of dirty reads a transact u sees effect of write by t before t aborted
+Premature writes - write too early can lead to data inconsistency in presence aborted transaction
+Dirty read corrected by blocking statements
+Cascading aborts - create whole chain aborts by changing statements in cascades
+Solution is to use locks 
+Premature writes - have to. Omit/ abort before 2nd transactions
+Before image - copy made automatically by transactional middleware where attempt made to access shared middleware rolled back to value if aborts
+Is it possible with integers to take before image of committed then take the difference work off the committed final?
+Locks mutually exclusive - once acquired held till commit or sbort 
+Two phase locks - growing phase (acquiring locks) and shrinking phase (giving up locks), also prevents inconsistency
+Deadlocks- read, read, write, write as both will block and won't esc,
+Two phase 
+Deadlock prevent via prevention - atomiciise by acquire all locks before beginning but impossible to know which locks requires (dynamic cases)
+Or timeouts - recovering from deadlocks by suspecting at potential cases, invulnerable for x time (transaction manager can't pull lock in this period or abort it)
+Detection and removal - identifying cycles in wait for graph, if cycle deadlock occurred can abort one to fix (criteria varies on which to abort)
+2 phase locking guarantees seralizable execution
+2 phase commit - managing resources in different servers - distributed transaction - when client starts goes to transact manager, gets I'd, remote calls on servers need to use, passes it's id, let's manager know what it's working with
+Before commit queries each server if okay to commit, if not then aborts, 
+Can survive crashes, recover lost data
+Lock promotion, if have read lock and attempts to write then lock promoted to write lock
+
+Lecture 13:
+Atomticity, change it from database manager to our control logic by conn.autocommit & commit.
+Dao separates the Persistence layer and local data access layer
+Having 2 dao's for 2 databases in local transaction model as no way to coordinate
+Platform transaction manager interface - defines common methods
+Config for jdbc
+Wrap Link bean for transaction mgr to data source
+Transaction template reduces boilerplate code, injected with local instance of transaction, processed via anon class
+Both Tranactions made persistent when anon class being closed
+Separation of concern means don't want to do this way, aop good for this
+Propagation 
+	•	 Defines the boundaries of a transaction with respect to the caller and method being called 
+Isolation 
+	•	 Defines the extent to which a transaction can be impacted by other concurrent transactions 
+Rollback rules 
+	•	 Defines which exceptions cause a transaction to abort 
+Timeout 
+	•	 Defines the maximum period of  time a transaction can take before being aborted 
+Read-only 
+	•	 Defines whether a transaction is read-only
+All transactions even if fail should be audited
+Use of REQUIRES_NEW violates the ACID requirements for transactions. However, use REQUIRES_NEW for a method whose effect must be committed regardless of the outcome of a surrounding transaction. 
+Phantom reads can you prevent by making w follow u much like threads?
+
+Lecture 14:
+Feedback lab 3&4 
+I. 
+Annotations for basic authentication
+@component("security manager")
+@component("secure bean")
+Implement aspect
+@component ("security advice")
+@aspect
+@pointcut("execution(* secure bean.*(..))")
+@ autowired
+@before("method")
+See rest of feedback
+
+Lecture 15:
+Security 
+Attacks - eavesdropping, masquerading, tampering, replaying, 
+Communication needs confidentiality, authentication and integrity
+Means of attacks - broadcast to all in LAN (packet sniffing),  Can spoof IP addressing, session hijack (2nd handshake intercepted, 3rd handshake sent malicious, ddos original), 
+Principles of cryptography - allow sender to disguise data so that intruder can gain no information from intercepted data
+Encryption - secret key or public key
+Secret key - 1 shared key known by both parties, offset based on alphabet
+Mono alphabetic - map randomly, polyalphabetical - multi offset mapping
+Public key - asymmetric, need public or private keys to encrypt/decrypt - depending on send/recieve
+Decrypting encryption
+3 way
+Cipher only - statistical analysis
+Known plaintext- where intruder knows certain content
+Closed plaintext - 
+Encryption
+DES - data encryption standard - the goal is to completely scramble the data and key so that every bit of cipher depends in every bit of the data and every bit of the key - with a good algorithm there should be no correlation between cipher text and either original data/key
+AES- takes centuries theoretically 
+D(KpubE(KprivM))=M
+RSA - m = pq where p & q large prime numbers
+Authentication - proving ones identity to someone else
+Nonce is number that a protocol will use only once in a lifetime
+Protocols only as secure as methods for distributing keys
+
+Lecture 16:
+Integrity via secure digests/signature
+Secure key exchange- distribution centers, certificates
+Ssl - hybrid protocol
+
+Cryptographic id the author 
+Never same sig if using private key
+It's verifiable, non forge able, non repudiable
+Public key computationally expensive
+Encrypt with recipient public key thus only recipient can unencrypted
+Key distribution centre is server plays role trusted intermediary, one secret key for each user
+Kdc appropiate for single admin domain environments
+Generates session keys from ticket request
+All messages encrypt using shared session key not private keys
+Vulnerable to replay attack, stop via nonce or expiry time for session key
+Eg Kerberos system
+Certs
+Binds pub key to identity
+Cert authority serves as trusted 3rd party
+Uses ca's private key
+Ssl
+Need confidentiality
+Want to authenticate web server
+Negotiate encrypt, authenticate server to client, authenticate client to server, secure communication
+Handshake finish before http request sent
+
+
+
